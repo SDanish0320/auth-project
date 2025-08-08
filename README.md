@@ -4,6 +4,7 @@ This is a simple responsive frontend auth project using **HTML, CSS, and JavaScr
 
 ## 🚀 Live Demo
 
+🔗 **Live on Vercel:** [https://auth-project-ivory-phi.vercel.app](https://auth-project-ivory-phi.vercel.app)
 🔗 **GitHub Repo:** [https://github.com/SDanish0320/auth-project](https://github.com/SDanish0320/auth-project)  
 
 ## 🔑 Features
