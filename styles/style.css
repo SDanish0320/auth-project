@@ -1,0 +1,54 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.register-page {
+  background: linear-gradient(to right, #1f4037, #99f2c8);
+}
+.login-page {
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: white;
+}
+.welcome-page {
+  background: linear-gradient(to right, #8360c3, #2ebf91);
+  color: white;
+}
+.container, .welcome-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 360px;
+}
+input, button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 8px;
+}
+input {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+}
+input::placeholder {
+  color: #ccc;
+}
+button {
+  background-color: #00c6ff;
+  color: white;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0072ff;
+}
+.link a {
+  color: inherit;
+  text-decoration: underline;
+}
