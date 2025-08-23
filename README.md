@@ -1,94 +1,43 @@
-# 🔐 Auth Project — Frontend Authentication using External API
+# 🔐 Auth Project — Frontend Authentication
 
-This is a simple, responsive frontend authentication project built with **HTML, CSS, and JavaScript**. It integrates with an external API for user registration and login using **JWT tokens**.
-
----
+This is a simple responsive frontend auth project using **HTML, CSS, and JavaScript**, integrated with an external API (`https://os-project-server.vercel.app`) that returns a **JWT token** after login.
 
 ## 🚀 Live Demo
 
-🔗 **Live on Vercel:** [your-vercel-link](https://your-vercel-link.vercel.app)  
-📦 **GitHub Repo:** [your-github-link](https://github.com/your-username/auth-project)
+🔗 **GitHub Repo:** [https://github.com/SDanish0320/auth-project](https://github.com/SDanish0320/auth-project)  
 
----
+## 🔑 Features
 
-## 🛠 Tech Stack
+- User registration via `/auth/newuser`
+- Login via `/auth/existinguser` using **username**
+- Token decoding & welcome screen
+- Logout functionality
+- Clean, responsive UI
 
-- HTML5
-- CSS3 (modular and reusable)
-- Vanilla JavaScript (ES6+)
-- External API: `https://os-project-server.vercel.app`
+## 📁 Files & Folders
 
----
+├── index.html # Register
+├── login.html # Login
+├── welcome.html # Welcome screen
+├── styles/style.css # All CSS
+└── scripts/ # JS files for logic
+├── register.js
+├── login.js
+└── welcome.js
 
-## 📂 Folder Structure
+## 🧪 Test Instructions
 
-```
-auth-project/
-│
-├── index.html           # Register Page
-├── login.html           # Login Page
-├── welcome.html         # Welcome Screen
-│
-├── styles/
-│   └── style.css        # Central CSS
-│
-└── scripts/
-    ├── register.js      # Register logic
-    ├── login.js         # Login logic
-    └── welcome.js       # Token decoding + logout
-```
+1. **Register:** Go to `index.html`, fill username/email/password
+2. **Login:** Use the same username + password
+3. **Welcome:** JWT token is decoded, user ID shown
+4. **Logout:** Clears token and redirects to login
 
----
+## 📎 Notes
 
-## 🔁 Authentication Flow
+- ✅ Use **username** (not email) to login
+- ⚠ Ensure backend server is live
+- Token is stored in `localStorage`
 
-1. **Register Page (`index.html`)**
-   - Sends POST request to `/auth/newuser`
-   - On success → redirects to login
+## 👤 Author
 
-2. **Login Page (`login.html`)**
-   - Sends POST request to `/auth/existinguser`
-   - On success → stores JWT token in `localStorage`
-   - Redirects to welcome screen
-
-3. **Welcome Page (`welcome.html`)**
-   - Decodes token from `localStorage`
-   - Displays user-specific data
-   - Logout clears token & redirects to login
-
----
-
-## 🧪 How to Test
-
-### ➕ Register
-1. Go to `/index.html`
-2. Enter unique `username`, valid `email`, and password
-3. Submit the form
-
-### 🔑 Login
-1. Use the same `username` & `password` used during registration
-2. On success, you'll be redirected to the welcome screen
-
----
-
-## ⚙️ Setup Locally
-
-```bash
-git clone https://github.com/your-username/auth-project.git
-cd auth-project
-# Open index.html or login.html in your browser
-```
-
----
-
-## 🧾 Notes
-
-- ✅ Authentication is based on `username`, not email
-- ⚠ Make sure the API server is online: `https://os-project-server.vercel.app`
-- Token is a standard JWT format and decoded on the client side
-
----
-
-## 📧 Contact
-
-Made with ❤️ by [Your Name]
+Made with ❤️ by **Muhammad Danish**

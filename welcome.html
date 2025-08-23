@@ -3,16 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome</title>
+  <title>Dashboard | Professional Auth</title>
   <link rel="stylesheet" href="styles/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="welcome-page">
-  <div class="welcome-box">
-    <h1>Welcome 🎉</h1>
-    <p id="userData">Loading user data...</p>
-    <button onclick="logout()">Logout</button>
+  
+  <nav class="nav-header">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <div class="nav-logo">🚀</div>
+        <span class="nav-title">Dashboard</span>
+      </div>
+      
+      <div class="nav-menu">
+        <a href="#" class="nav-link" onclick="showOverview()">Overview</a>
+        <a href="#" class="nav-link" onclick="showProfile()">Profile</a>
+        <a href="#" class="nav-link" onclick="showSettings()">Settings</a>
+        <a href="#" class="nav-link" onclick="showSecurity()">Security</a>
+        <a href="#" class="nav-link" onclick="showActivity()">Activity</a>
+      </div>
+      
+      <div class="nav-user">
+        <div class="user-avatar" id="userAvatar">U</div>
+        <div class="user-info">
+          <h4 id="userName">Loading...</h4>
+          <p id="userRole">Standard User</p>
+        </div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="main-content">
+   
+    <section class="welcome-section">
+      <h1 id="welcomeTitle">Welcome back!</h1>
+      <p id="welcomeSubtitle">Here's what's happening with your account today.</p>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">15</div>
+          <div class="stat-label">Days Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Logins This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Profile Updates</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Security Score</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="overviewSection" class="content-section">
+      <div class="section-header">
+        <h2 class="section-title">Account Overview</h2>
+        <button class="section-action" onclick="refreshData()">Refresh</button>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Account Status</span>
+          <span class="status-badge">Active</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Last Login</span>
+          <span class="info-value" id="lastLogin">Today</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Member Since</span>
+          <span class="info-value" id="memberSince">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Security Level</span>
+          <span class="info-value">High</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="profileSection" class="content-section" style="display: none;">
+      <div class="section-header">
+        <h2 class="section-title">Profile Information</h2>
+        <button class="section-action" onclick="editProfile()">Edit Profile</button>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Username</span>
+          <span class="info-value" id="profileUsername">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email Address</span>
+          <span class="info-value" id="profileEmail">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Full Name</span>
+          <span class="info-value">Not set</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Phone Number</span>
+          <span class="info-value">Not set</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Location</span>
+          <span class="info-value">Not set</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="settingsSection" class="content-section" style="display: none;">
+      <div class="section-header">
+        <h2 class="section-title">Account Settings</h2>
+        <button class="section-action" onclick="saveSettings()">Save Changes</button>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Email Notifications</span>
+          <span class="status-badge">Enabled</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">SMS Notifications</span>
+          <span class="info-value">Disabled</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Two-Factor Authentication</span>
+          <span class="info-value">Disabled</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Privacy Mode</span>
+          <span class="status-badge">Private</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Data Export</span>
+          <button class="section-action" onclick="exportData()">Download</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="securitySection" class="content-section" style="display: none;">
+      <div class="section-header">
+        <h2 class="section-title">Security & Privacy</h2>
+        <button class="section-action" onclick="changePassword()">Change Password</button>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Password Strength</span>
+          <span class="status-badge">Strong</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Last Password Change</span>
+          <span class="info-value">30 days ago</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Login Attempts</span>
+          <span class="info-value">0 failed attempts</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Active Sessions</span>
+          <span class="info-value">1 session</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Account Recovery</span>
+          <span class="status-badge">Email Verified</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="activitySection" class="content-section" style="display: none;">
+      <div class="section-header">
+        <h2 class="section-title">Recent Activity</h2>
+        <button class="section-action" onclick="clearActivity()">Clear History</button>
+      </div>
+      
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">🔑 Successful Login</span>
+          <span class="info-value">Today, 9:30 AM</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">👤 Profile Viewed</span>
+          <span class="info-value">Yesterday, 4:15 PM</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">⚙️ Settings Updated</span>
+          <span class="info-value">2 days ago</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">🔐 Password Changed</span>
+          <span class="info-value">1 month ago</span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">🎉 Account Created</span>
+          <span class="info-value" id="accountCreated">Loading...</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Profile</h3>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form class="auth-form">
+          <div class="input-group">
+            <label>Full Name</label>
+            <input type="text" id="editFullName" placeholder="Enter your full name">
+          </div>
+          <div class="input-group">
+            <label>Email Address</label>
+            <input type="email" id="editEmail" placeholder="Enter your email">
+          </div>
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="editPhone" placeholder="Enter your phone number">
+          </div>
+          <div class="input-group">
+            <label>Location</label>
+            <input type="text" id="editLocation" placeholder="Enter your location">
+          </div>
+          <button type="submit" class="auth-btn primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
   </div>
+
   <script src="scripts/welcome.js"></script>
 </body>
 </html>
